@@ -4,6 +4,8 @@ import os
 
 """
 @param self.fname: local path for image on user devise
+@param self.download: binary image variable can for save image
+@param edited_pixmap: pixel map image to display on pyqt
 """
 def modify_image(self, jop):
   match jop:
