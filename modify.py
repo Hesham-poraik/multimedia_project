@@ -1,12 +1,14 @@
 import cv2 as cv
 from PyQt5 import QtGui
+import os
+
 """
 @param self.fname: local path for image on user devise
 """
 def modify_image(self, jop):
   match jop:
     case "one":
-      binary_image = cv.imread(self.fname, 0)
+      binary_image = cv.imread(self.fname)
       self.download = binary_image
       edited_pixmap = QtGui.QPixmap(self.fname)
       self.img_label.setPixmap(edited_pixmap)
@@ -33,6 +35,10 @@ def modify_image(self, jop):
     case "seven":
       # write your implementation
       print("seven", self.fname)
+    case "down":
+      if self.download is not None:
+        output_path = os.path.join(os.path.dirname(self.fname), "output.jpg")
+        cv.imwrite(output_path, self.download)
     case _:
       # write your implementation
       print("what are you want [*_*]")
