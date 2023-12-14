@@ -8,6 +8,7 @@ class Ui_main_layout(object):
     main_layout.setStyleSheet("background: #f1f5f9")
     main_layout.setWindowIcon(QtGui.QIcon('assets/app.ico'))
 
+    self.first = True
     self.gridLayout = QtWidgets.QGridLayout(main_layout)
     self.gridLayout.setContentsMargins(4, 4, 4, 4)
     self.gridLayout.setSpacing(0)
@@ -93,6 +94,14 @@ class Ui_main_layout(object):
     self.pushButton_6.setObjectName("pushButton_6")
     self.pushButton_6.clicked.connect(lambda: self.modify_image('six'))
     self.verticalLayout.addWidget(self.pushButton_6)
+
+    self.pushButton_8 = QtWidgets.QPushButton(self.frame_2)
+    self.pushButton_8.setMinimumSize(QtCore.QSize(0, 48))
+    self.pushButton_8.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+    self.pushButton_8.setStyleSheet("background: #4611b1; font-size: 21px; color: #fff;")
+    self.pushButton_8.setObjectName("pushButton_8")
+    self.pushButton_8.clicked.connect(lambda: self.modify_image('eight'))
+    self.verticalLayout.addWidget(self.pushButton_8)
 
     self.pushButton_7 = QtWidgets.QPushButton(self.frame_2)
     self.pushButton_7.setMinimumSize(QtCore.QSize(0, 48))
@@ -192,7 +201,7 @@ class Ui_main_layout(object):
 
   def upload_image(self):
     # Open file dialog to select an image file
-    fname, _ = QtWidgets.QFileDialog.getOpenFileName(None, 'Open file', './assets/', 'Image files (*.png *.jpg *.bmp *.jpeg)')
+    fname, _ = QtWidgets.QFileDialog.getOpenFileName(None, 'Open file', './assets/', 'Image files (*.png *.jpg *.jpeg)')
 
     # Update the image label with the selected image
     if fname:
@@ -211,12 +220,13 @@ class Ui_main_layout(object):
         main_layout.setWindowFilePath(_translate("main_layout", "background: #f1f5f9"))
         self.pushButton.setText(_translate("main_layout", "Edit your photo"))
         self.pushButton_1.setText(_translate("main_layout", "Original"))
-        self.pushButton_2.setText(_translate("main_layout", "Grayscale"))
-        self.pushButton_3.setText(_translate("main_layout", "Three"))
-        self.pushButton_4.setText(_translate("main_layout", "Four"))
-        self.pushButton_5.setText(_translate("main_layout", "Five"))
-        self.pushButton_6.setText(_translate("main_layout", "Six"))
-        self.pushButton_7.setText(_translate("main_layout", "Seven"))
+        self.pushButton_2.setText(_translate("main_layout", "Rotate"))
+        self.pushButton_3.setText(_translate("main_layout", "Sharp"))
+        self.pushButton_4.setText(_translate("main_layout", "Blur"))
+        self.pushButton_5.setText(_translate("main_layout", "Canny"))
+        self.pushButton_6.setText(_translate("main_layout", "Emboss"))
+        self.pushButton_7.setText(_translate("main_layout", "img → txt"))
+        self.pushButton_8.setText(_translate("main_layout", "Mirror"))
         self.pushButton_down.setText(_translate("main_layout", "🕹️ save image"))
         self.pushButton_up.setText(_translate("main_layout", "Image Processing"))
         self.pushButton_upload.setText(_translate("main_layout", "Upload your image"))
