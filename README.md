@@ -9,10 +9,13 @@ Welcome to the Image Processing project! This project is designed to facilitate 
 
 
 2. **Select Image from Local PC.**
-![Landing Section](./markdown_data/Capture_2.PNG)
+![Landing Section](./markdown_data/Capture.PNG)
 
 3. **Modify Image on App.**
+![Landing Section](./markdown_data/Capture_2.PNG)
 ![Landing Section](./markdown_data/Capture_3.PNG)
+![Landing Section](./markdown_data/Capture_4.PNG)
+![Landing Section](./markdown_data/Capture_5.PNG)
 
 ## Getting Started
 

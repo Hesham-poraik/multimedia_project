@@ -52,7 +52,7 @@ def convert_cv_image_to_pixmap(image):
     if len(image.shape) == 2:
         height, width = image.shape
         bytes_per_line = 1 * width
-        q_image = QtGui.QImage(image.data.tobytes(), width, height, bytes_per_line, QtGui.QImage.Format_Grayscale8)
+        q_image = QtGui.QImage(image.data.tobytes()       , width, height, bytes_per_line, QtGui.QImage.Format_Grayscale8)
     else:
         height, width, channels = image.shape
         bytes_per_line = channels * width
