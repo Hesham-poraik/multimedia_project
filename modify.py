@@ -1,5 +1,5 @@
 import cv2 as cv
-from PyQt5 import QtGui
+from PyQt5 import QtGui, QtCore
 import os
 import numpy as np
 
@@ -48,22 +48,23 @@ def modify_image(self, jop):
       # write your implementation
       print("what are you want [*_*]")
 
-def convert_cv_image_to_pixmap(image):
+def convert_cv_image_to_pixmap(image, target_size):
     if len(image.shape) == 2:
         height, width = image.shape
         bytes_per_line = 1 * width
-        q_image = QtGui.QImage(image.data.tobytes()       , width, height, bytes_per_line, QtGui.QImage.Format_Grayscale8)
+        q_image = QtGui.QImage(image.data.tobytes(), width, height, bytes_per_line, QtGui.QImage.Format_Grayscale8)
     else:
         height, width, channels = image.shape
         bytes_per_line = channels * width
         q_image = QtGui.QImage(image.data.tobytes(), width, height, bytes_per_line, QtGui.QImage.Format_BGR888)
         
-    return QtGui.QPixmap.fromImage(q_image)
+    return QtGui.QPixmap.fromImage(q_image.scaled(target_size, QtCore.Qt.KeepAspectRatio))
 
 # change image on pyqt
 def display(self, final_image):
     self.download = final_image
-    edited_pixmap = convert_cv_image_to_pixmap(final_image)
+    target_size = self.img_label.size()
+    edited_pixmap = convert_cv_image_to_pixmap(final_image, target_size)
     self.img_label.setPixmap(edited_pixmap)
 
 
@@ -100,8 +101,5 @@ def emboss(image):
 def mirror(image):
     return image[:,::-1,:]
 
-
-
-
 def Image2String(image):
-    print("nothing to do!! (⓿_⓿)")
+    print("nothing to do!! [*_*]")
