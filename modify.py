@@ -2,6 +2,7 @@ import cv2 as cv
 from PyQt5 import QtGui, QtCore
 import os
 import numpy as np
+# import easyocr
 
 """
 @param self.fname: local path for image on user devise
@@ -36,13 +37,13 @@ def modify_image(self, jop):
       new_image = emboss(image)
       display(self, new_image)
     case "seven":
-      Image2String(image)
+      Image2String(self, image)
     case "eight":
       new_image = mirror(image)
       display(self, new_image)
     case "down":
       if self.download is not None:
-        output_path = os.path.join(os.path.dirname(self.fname), "output.jpg")
+        output_path = os.path.join(os.path.dirname(self.fname), "output/output.jpg")
         cv.imwrite(output_path, self.download)
     case _:
       # write your implementation
@@ -66,7 +67,6 @@ def display(self, final_image):
     target_size = self.img_label.size()
     edited_pixmap = convert_cv_image_to_pixmap(final_image, target_size)
     self.img_label.setPixmap(edited_pixmap)
-
 
 # function filters
 def rotate(image):
@@ -99,7 +99,23 @@ def emboss(image):
     return emboss_img
 
 def mirror(image):
-    return image[:,::-1,:]
+    if(len(image.shape)==3):
+      return image[:,::-1,:]
+    elif(len(image.shape)==2):
+      return image[:,::-1]
 
-def Image2String(image):
-    print("nothing to do!! [*_*]")
+def Image2String(self, image):
+    # Inctance Text Detector
+    reader = easyocr.Reader(['en'], gpu=False)
+    # # Detect Text in Image
+    text_ = reader.readtext(image)
+    #***********************
+    text:str = ""
+    for line in text_:
+        text += line[1] + "\n"
+    # Create File
+    # output_path = os.path.join(os.path.dirname(self.fname), "textfile.txt")
+    myfile = open(r"./assets/output/textfile.txt", "a")
+    # with open(output_path, "a") as myfile:
+    myfile.write(text)
+    myfile.close()
