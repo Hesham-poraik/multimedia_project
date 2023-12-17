@@ -5,17 +5,17 @@
 Welcome to the Image Processing project! This project is designed to facilitate image processing tasks through a user-friendly interface.
 
 1. **Landing Section.**
-![Landing Section](./markdown_data/Capture_1.PNG)
+![Landing Section](./markdown_data/Capture_1.png)
 
 
 2. **Select Image from Local PC.**
-![Landing Section](./markdown_data/Capture.PNG)
+![Landing Section](./markdown_data/Capture.png)
 
 3. **Modify Image on App.**
-![Landing Section](./markdown_data/Capture_2.PNG)
-![Landing Section](./markdown_data/Capture_3.PNG)
-![Landing Section](./markdown_data/Capture_4.PNG)
-![Landing Section](./markdown_data/Capture_5.PNG)
+![Landing Section](./markdown_data/Capture_2.png)
+![Landing Section](./markdown_data/Capture_3.png)
+![Landing Section](./markdown_data/Capture_4.png)
+![Landing Section](./markdown_data/Capture_5.png)
 
 ## Getting Started
 

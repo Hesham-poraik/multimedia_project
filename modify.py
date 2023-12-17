@@ -11,7 +11,7 @@ import numpy as np
 """
 def modify_image(self, jop):
   # read image
-  if(self.first):
+  if(self.first): # self.first = True
       image = cv.imread(self.fname, 1)
       self.first = False
   else:
@@ -38,6 +38,7 @@ def modify_image(self, jop):
       display(self, new_image)
     case "seven":
       Image2String(self, image)
+      self.download = image
     case "eight":
       new_image = mirror(image)
       display(self, new_image)
@@ -45,17 +46,21 @@ def modify_image(self, jop):
       if self.download is not None:
         output_path = os.path.join(os.path.dirname(self.fname), "output/output.jpg")
         cv.imwrite(output_path, self.download)
+    case "change":
+        self.one_state.setStyleSheet("background: #ffffff;border: 1px solid #aaa; border-radius: 10px;width: 100%; min-width: 100%: max-width: 100%;")
+        self.two_state.setStyleSheet("background: #f1f5f9;min-width: 0; width: 0; max-width: 0")
+        self.first = True
     case _:
       # write your implementation
       print("what are you want [*_*]")
 
 def convert_cv_image_to_pixmap(image, target_size):
-    if len(image.shape) == 2:
+    if len(image.shape) == 2:#[255, 255]
         height, width = image.shape
         bytes_per_line = 1 * width
         q_image = QtGui.QImage(image.data.tobytes(), width, height, bytes_per_line, QtGui.QImage.Format_Grayscale8)
     else:
-        height, width, channels = image.shape
+        height, width, channels = image.shape#[256, 256, 3]
         bytes_per_line = channels * width
         q_image = QtGui.QImage(image.data.tobytes(), width, height, bytes_per_line, QtGui.QImage.Format_BGR888)
         
@@ -95,7 +100,7 @@ def emboss(image):
     emboss_kernel = np.array([[-1, 0, 0], 
                               [0, 0, 0], 
                               [0, 0, 1]]) 
-    emboss_img = cv.filter2D(src=image, ddepth=-1, kernel=emboss_kernel)
+    emboss_img = cv.filter2D(image, -1, emboss_kernel)
     return emboss_img
 
 def mirror(image):
@@ -112,10 +117,14 @@ def Image2String(self, image):
     #***********************
     text:str = ""
     for line in text_:
-        text += line[1] + "\n"
+        text += line[1] + "\n"#[,,]
     # Create File
-    # output_path = os.path.join(os.path.dirname(self.fname), "textfile.txt")
-    myfile = open(r"./assets/output/textfile.txt", "a")
+    output_path = r"./assets/output/textfile.txt"
+    try:
+      os.remove(output_path)
+    except:
+      pass
+    myfile = open(output_path, "a")
     # with open(output_path, "a") as myfile:
     myfile.write(text)
     myfile.close()

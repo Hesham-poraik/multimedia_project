@@ -47,6 +47,14 @@ class Ui_main_layout(object):
     spacerItem = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
     self.verticalLayout.addItem(spacerItem)
 
+    self.pushButton_0 = QtWidgets.QPushButton(self.frame_2)
+    self.pushButton_0.setMinimumSize(QtCore.QSize(0, 48))
+    self.pushButton_0.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+    self.pushButton_0.setStyleSheet("width: 60px;min-width: 60px;font-size: 50px; color: #000;border: none;outline: none")
+    self.pushButton_0.setObjectName("pushButton_0")
+    self.pushButton_0.clicked.connect(lambda: self.modify_image('change'))
+    self.verticalLayout.addWidget(self.pushButton_0)
+
     self.pushButton_1 = QtWidgets.QPushButton(self.frame_2)
     self.pushButton_1.setMinimumSize(QtCore.QSize(0, 48))
     self.pushButton_1.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
@@ -116,7 +124,7 @@ class Ui_main_layout(object):
     self.gridLayout_2.addWidget(self.frame_2, 0, 0, 1, 1)
 
     self.frame_3 = QtWidgets.QFrame(self.two_state)
-    self.frame_3.setStyleSheet("background: #fff;border: 1px solid #aaa")
+    self.frame_3.setStyleSheet("background: #fff;border: 1px solid #aaa; border-radius: 10px")
     self.frame_3.setFrameShape(QtWidgets.QFrame.StyledPanel)
     self.frame_3.setFrameShadow(QtWidgets.QFrame.Raised)
     self.frame_3.setObjectName("frame_3")
@@ -143,7 +151,7 @@ class Ui_main_layout(object):
 
     # state one
     self.one_state = QtWidgets.QFrame(main_layout)
-    self.one_state.setStyleSheet("background: #fff;border: 1px solid #aaa; border-radius: 10px;")
+    self.one_state.setStyleSheet("background: #ffffff;border: 1px solid #aaa; border-radius: 10px;")
     self.one_state.setFrameShape(QtWidgets.QFrame.StyledPanel)
     self.one_state.setFrameShadow(QtWidgets.QFrame.Raised)
     self.one_state.setObjectName("one_state")
@@ -188,7 +196,7 @@ class Ui_main_layout(object):
     self.pushButton_upload.setMinimumSize(QtCore.QSize(0, 65))
     self.pushButton_upload.setMaximumSize(QtCore.QSize(400, 16777215))
     self.pushButton_upload.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-    self.pushButton_upload.setStyleSheet("background: #4611b1; font-size: 28px; color: #fff;max-width: 400px")
+    self.pushButton_upload.setStyleSheet("background: #4611b1; font-size: 28px; color: #fff;max-width: 400px; border-radius: 10px")
     self.pushButton_upload.setObjectName("pushButton_upload")
     self.pushButton_upload.clicked.connect(self.upload_image)
 
@@ -222,6 +230,7 @@ class Ui_main_layout(object):
         main_layout.setWindowTitle(_translate("main_layout", "image processing"))
         main_layout.setWindowFilePath(_translate("main_layout", "background: #f1f5f9"))
         self.pushButton.setText(_translate("main_layout", "Edit your photo"))
+        self.pushButton_0.setText(_translate("main_layout", "↩"))
         self.pushButton_1.setText(_translate("main_layout", "Original"))
         self.pushButton_2.setText(_translate("main_layout", "Rotate"))
         self.pushButton_3.setText(_translate("main_layout", "Sharp"))
@@ -230,6 +239,6 @@ class Ui_main_layout(object):
         self.pushButton_6.setText(_translate("main_layout", "Emboss"))
         self.pushButton_7.setText(_translate("main_layout", "img → txt"))
         self.pushButton_8.setText(_translate("main_layout", "Mirror"))
-        self.pushButton_down.setText(_translate("main_layout", "🕹️ save image"))
+        self.pushButton_down.setText(_translate("main_layout", "🕹 save image"))
         self.pushButton_up.setText(_translate("main_layout", "Image Processing"))
-        self.pushButton_upload.setText(_translate("main_layout", "Upload your image"))
+        self.pushButton_upload.setText(_translate("main_layout", "Upload your image"))
