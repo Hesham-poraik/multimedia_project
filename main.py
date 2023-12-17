@@ -8,3 +8,4 @@ if __name__ == "__main__":
     ui.setupUi(main_layout)
     main_layout.show()
     sys.exit(app.exec_())
+    

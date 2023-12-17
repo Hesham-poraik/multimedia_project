@@ -17,7 +17,7 @@ Welcome to the Image Processing project! This project is designed to facilitate 
 ![Landing Section](./markdown_data/Capture_4.png)
 ![Landing Section](./markdown_data/Capture_5.png)
 
-## Getting Started
+## Getting Started 
 
 To run the project locally, follow these steps:
 

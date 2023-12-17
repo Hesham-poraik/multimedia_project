@@ -242,3 +242,4 @@ class Ui_main_layout(object):
         self.pushButton_down.setText(_translate("main_layout", "🕹 save image"))
         self.pushButton_up.setText(_translate("main_layout", "Image Processing"))
         self.pushButton_upload.setText(_translate("main_layout", "Upload your image"))
+        

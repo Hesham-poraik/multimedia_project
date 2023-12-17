@@ -10,7 +10,7 @@ import numpy as np
 @param edited_pixmap: pixel map image to display on pyqt
 """
 def modify_image(self, jop):
-  # read image
+  # read image 
   if(self.first): # self.first = True
       image = cv.imread(self.fname, 1)
       self.first = False
